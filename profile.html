@@ -11,7 +11,7 @@
 
 </head>
 <body>
-	<a href="#login" id="login">Log in</a>
+	<a href="#label" id="login">Log in</a>
 	<span id="username"></span>
 	<span id="user_id"></span>
 
@@ -22,7 +22,7 @@
 				client_id : 9760
 			})
 
-			$("a[href='#login']").click(function() {
+			$("a[href='#label']").click(function() {
 
 				if (!MELI.getToken()) {
 					MELI.login(function() {
@@ -31,14 +31,14 @@
 
 							$("#username").text(user.nickname);
 							$("#user_id").text(user.id);
+							$('#label').html("Log out");
 						});
 					});
 				} else {
-					MELI.get('/users/me', null, function(response) {
-						var user = response[2];
-
-						$("#username").text(user.nickname);
-						$("#user_id").text(user.id);
+					MELI.logout(function() {
+						$("#username").text("");
+						$("#user_id").text("");
+						$('#label').html("Log in");
 					});
 				}
 			});
