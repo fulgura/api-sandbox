@@ -31,14 +31,14 @@
 
 							$("#username").text(user.nickname);
 							$("#user_id").text(user.id);
-							$('#label').html("Log out");
+							$('#label').text("Log out");
 						});
 					});
 				} else {
 					MELI.logout();
 					$("#username").text("");
 					$("#user_id").text("");
-					$('#label').html("Log in");
+					$('#label').text("Log in");
 				}
 			});
 
