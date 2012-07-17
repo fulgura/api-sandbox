@@ -35,11 +35,10 @@
 						});
 					});
 				} else {
-					MELI.logout(function() {
-						$("#username").text("");
-						$("#user_id").text("");
-						$('#label').html("Log in");
-					});
+					MELI.logout();
+					$("#username").text("");
+					$("#user_id").text("");
+					$('#label').html("Log in");
 				}
 			});
 
