@@ -17,29 +17,32 @@
 
 	<script type="text/javascript">
 		$(function() {
-			// For testing purposes, some times we need to disable
-			// silent authorization. Might become an option later.
-			if (window.location.hash == "#nosilent") {
-				MELI._silentAuthorization = function() {
-				}
-			}
 
 			MELI.init({
 				client_id : 9760
 			})
 
 			$("a[href='#login']").click(function() {
-				MELI.requireLogin(function() {
-					MELI.get("/users/me", function(response) {
+
+				if (!MELI.getToken()) {
+					MELI.login(function() {
+						MELI.get('/users/me', null, function(response) {
+							var user = response[2];
+
+							$("#username").text(user.nickname);
+							$("#user_id").text(user.id);
+						});
+					});
+				} else {
+					MELI.get('/users/me', null, function(response) {
 						var user = response[2];
 
 						$("#username").text(user.nickname);
 						$("#user_id").text(user.id);
-					})
-				});
-
-				return false;
+					});
+				}
 			});
+
 		});
 	</script>
 </body>
