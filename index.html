@@ -14,8 +14,12 @@
 <meta http-equiv="X-UA-Compatible" content="chrome=1">
 <title>Getting Started</title>
 
-    <script src="http://static.mlstatic.com/org-img/ch/ui/0.10.5/chico-jquery.min.js"></script>
-    <script src="http://static.mlstatic.com/org-img/sdk/mercadolibre-1.0.1.js"></script>
+<script
+	src="http://static.mlstatic.com/org-img/ch/ui/0.10.5/chico-jquery.min.js"></script>
+<script
+	src="http://static.mlstatic.com/org-img/sdk/mercadolibre-1.0.1.js"></script>
+<link rel="stylesheet"
+	href="http://static.mlstatic.com/org-img/ch/ui/0.10.5/chico-mesh.min.css">
 
 </head>
 <body>
@@ -51,11 +55,48 @@
 	<p>
 	<pre id='me'>info</pre>
 	</p>
-	
-	<script>
 
-    	MELI.init({client_id: 6092});
-    	MELI.getLoginStatus();
+	<script>
+		$(document).ready(function() {
+			MELI.init({
+				client_id : 6092
+			});
+			MELI.getLoginStatus();
+			$('#token').hide();
+			$('#me').hide();
+
+			$('#get-access-token').click(function() {
+				if (!MELI.getToken()) {
+					MELI.login(function() {
+						$('#get-access-token').hide();
+						$('#token').show();
+						$('#access_token').html(MELI.getToken());
+					});
+				} else {
+					$('#get-access-token').hide();
+					$('#token').show();
+					$('#access_token').html(MELI.getToken());
+				}
+			});
+
+			$('#show-my-info').click(function() {
+				if (!MELI.getToken()) {
+					MELI.login(function() {
+						MELI.get('/users/me', null, function(data) {
+							$('#show-my-info').hide();
+							$('#me').html(JSON.stringify(data[2]));
+							$('#me').show();
+						});
+					});
+				} else {
+					MELI.get('/users/me', null, function(data) {
+						$('#show-my-info').hide();
+						$('#me').html(JSON.stringify(data[2]));
+						$('#me').show();
+					});
+				}
+			});
+		});
 	</script>
 
 </body>
