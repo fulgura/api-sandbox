@@ -55,7 +55,8 @@
 	<script>
 		$(document).ready(function() {
 			MELI.init({
-				client_id : 6092
+				client_id : 6092,
+				xauth_domain: "fulgura.github.com"
 			});
 			MELI.getLoginStatus();
 			$('#token').hide();
