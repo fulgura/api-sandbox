@@ -14,12 +14,10 @@
 <meta http-equiv="X-UA-Compatible" content="chrome=1">
 <title>Getting Started</title>
 
-<script
-	src="https://a248.e.akamai.net/secure.mlstatic.com/org-img/ch/ui/0.10.5/chico-jquery.min.js"></script>
-<script
-	src="https://a248.e.akamai.net/secure.mlstatic.com/org-img/sdk/mercadolibre-1.0.1.js"></script>
-<link rel="stylesheet"
-	href="https://a248.e.akamai.net/secure.mlstatic.com/org-img/ch/ui/0.10.5/chico-mesh.min.css">
+    <script src="http://static.mlstatic.com/org-img/ch/ui/0.10.5/chico-jquery.min.js"></script>
+    <script src="http://static.mlstatic.com/org-img/sdk/mercadolibre-1.0.1.js"></script>
+    
+    <link rel="stylesheet" href="http://static.mlstatic.com/org-img/ch/ui/0.10.5/chico-mesh.min.css">
 
 
 </head>
@@ -59,10 +57,11 @@
 	<script>
 		$(document).ready(function() {
 			MELI.init({
-				client_id : 9125,
-				xauth_domain : "fulgura.github.com/api-sandbox"
+				client_id : 9125
 			});
+			
 			MELI.getLoginStatus();
+			
 			$('#token').hide();
 			$('#me').hide();
 
