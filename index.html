@@ -3,78 +3,103 @@
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7 ie6" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8 ie7" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js lt-ie9 ie8" lang="en"> <![endif]-->
-<!--[if (gt IE 8)|!(IE)]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<!--[if (gt IE 8)|!(IE)]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
 <head>
-	<meta name="robots" content="" />
+<meta name="robots" content="" />
 <meta name="description" content="" />
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Getting Started</title>  
-    
-    <script src="https://a248.e.akamai.net/secure.mlstatic.com/org-img/ch/ui/0.10.5/chico-jquery.min.js"></script>
-    <script src="https://a248.e.akamai.net/secure.mlstatic.com/org-img/sdk/mercadolibre-1.0.1.js"></script>
-    <link rel="stylesheet" href="https://a248.e.akamai.net/secure.mlstatic.com/org-img/ch/ui/0.10.5/chico-mesh.min.css">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<title>Getting Started</title>
 
-    
-  </head>
-  <body>
-
-<p>In order to start playing with the APIs, click the button to get an access token. <p><input class='ch-btn ch-btn-small' id='get-access-token' type='button' value='Get my access token' />
-<pre id='token'><code id='access_token'>token</code></pre></p></p>
-
-<blockquote>
-<p>NOTE: You&#8217;ll be granting to this developer site basic access to your information.</p>
-</blockquote>
+<script
+	src="https://a248.e.akamai.net/secure.mlstatic.com/org-img/ch/ui/0.10.5/chico-jquery.min.js"></script>
+<script
+	src="https://a248.e.akamai.net/secure.mlstatic.com/org-img/sdk/mercadolibre-1.0.1.js"></script>
+<link rel="stylesheet"
+	href="https://a248.e.akamai.net/secure.mlstatic.com/org-img/ch/ui/0.10.5/chico-mesh.min.css">
 
 
-<p>Now that you have an acccess token, the developers site application can access your basic information by requesting <code>/users/me</code> and appending a query string parameter called <code>access_token</code> with the value of the access token:</p>
-<pre class='terminal'>$ curl https://api.mercadolibre.com/users/me?access_token=...</pre><input class='ch-btn ch-btn-small' id='show-my-info' type='button' value='Show my information' /><p><pre id='me'>info</pre></p>
-<script>
-    $(document).ready(function() {
-        MELI.init({client_id: 9125,
-		xauth_domain: "50.17.238.11",
-		xd_url: "/xd-1.0.1.html",
-		xauth_protocol: "https://"
-	});
-        MELI.getLoginStatus();
-        $('#token').hide();
-        $('#me').hide();
+</head>
+<body>
 
-        $('#get-access-token').click(function() {
-            if(!MELI.getToken()) {
-                MELI.login(function() {
-                    $('#get-access-token').hide();
-                    $('#token').show();
-                    $('#access_token').html(MELI.getToken());
-                });
-            } else {
-                $('#get-access-token').hide();
-                $('#token').show();
-                $('#access_token').html(MELI.getToken());
-            }
-        });
+	<p>In order to start playing with the APIs, click the button to get
+		an access token.
+	<p>
+		<input class='ch-btn ch-btn-small' id='get-access-token' type='button'
+			value='Get my access token' />
+	<pre id='token'>
+		<code id='access_token'>token</code>
+	</pre>
+	</p>
+	</p>
 
-        $('#show-my-info').click(function() {
-            if(!MELI.getToken()) {
-                MELI.login(function() {
-                    MELI.get('/users/me', null, function(data) {
-                        $('#show-my-info').hide();
-                        $('#me').html(JSON.stringify(data[2]));
-                        $('#me').show();
-                    });
-                });
-            } else {
-                MELI.get('/users/me', null, function(data) {
-                    $('#show-my-info').hide();
-                    $('#me').html(JSON.stringify(data[2]));
-                    $('#me').show();
-                });
-            }
-        });
-    });
-</script>
-			
+	<blockquote>
+		<p>NOTE: You&#8217;ll be granting to this developer site basic
+			access to your information.</p>
+	</blockquote>
+
+
+	<p>
+		Now that you have an acccess token, the developers site application
+		can access your basic information by requesting
+		<code>/users/me</code>
+		and appending a query string parameter called
+		<code>access_token</code>
+		with the value of the access token:
+	</p>
+	<pre class='terminal'>$ curl https://api.mercadolibre.com/users/me?access_token=...</pre>
+	<input class='ch-btn ch-btn-small' id='show-my-info' type='button'
+		value='Show my information' />
+	<p>
+	<pre id='me'>info</pre>
+	</p>
+	<script>
+		$(document).ready(function() {
+			MELI.init({
+				client_id : 9125,
+				xauth_domain : "fulgura.github.com/api-sandbox"
+			});
+			MELI.getLoginStatus();
+			$('#token').hide();
+			$('#me').hide();
+
+			$('#get-access-token').click(function() {
+				if (!MELI.getToken()) {
+					MELI.login(function() {
+						$('#get-access-token').hide();
+						$('#token').show();
+						$('#access_token').html(MELI.getToken());
+					});
+				} else {
+					$('#get-access-token').hide();
+					$('#token').show();
+					$('#access_token').html(MELI.getToken());
+				}
+			});
+
+			$('#show-my-info').click(function() {
+				if (!MELI.getToken()) {
+					MELI.login(function() {
+						MELI.get('/users/me', null, function(data) {
+							$('#show-my-info').hide();
+							$('#me').html(JSON.stringify(data[2]));
+							$('#me').show();
+						});
+					});
+				} else {
+					MELI.get('/users/me', null, function(data) {
+						$('#show-my-info').hide();
+						$('#me').html(JSON.stringify(data[2]));
+						$('#me').show();
+					});
+				}
+			});
+		});
+	</script>
+
 </body>
 </html>
 
