@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Using chico</title>
+<link rel="stylesheet"
+	href="http://static.mlstatic.com/org-img/ch/ui/0.10.5/chico-mesh.min.css">
+</head>
+<body>
+
+	<section class="api-members methods ch-accordion"> <article
+		id="content" class="ch-expando">
+	<h5 class="ch-expando-trigger ch-user-no-select ch-expando-trigger-on"
+		aria-expanded="true" aria-controls="ch-expando-6" role="presentation">
+		<!--if test="member.isStatic && member.memberOf != '_global_'">ch.Uiobject.</if-->
+		content(content)
+	</h5>
+	<div class="ch-expando-content" id="ch-expando-6" aria-hidden="false"
+		style="display: block;">
+		<p>Sets and gets component content. To get the defined content
+			just use the method without arguments, like 'widget.content()'. To
+			define a new content pass an argument to it, like
+			'widget.content("new content")'. Use a valid URL to get content using
+			AJAX. Use a CSS selector to get content from a DOM Element. Or just
+			use a String with HTML code.</p>
+
+		<p>
+			It method borrows <a href="../symbols/ch.Uiobject.html#content">ch.Uiobject#content</a>.
+		</p>
+
+
+		<h4>Parameters</h4>
+		<ul class="ch-list parameters">
+
+			<li><code>content</code>: <em class="string">string</em> Static
+				content, DOM selector or URL. If argument is empty then will return
+				the content.</li>
+
+		</ul>
+
+
+
+
+
+
+		<h4>Examples</h4>
+
+
+		<p>Get the defined content</p>
+		<pre>widget.content();</pre>
+
+		<p>Set static content</p>
+		<pre>widget.content("Some static content");</pre>
+
+		<p>Set DOM content</p>
+		<pre>widget.content("#hiddenContent");</pre>
+
+		<p>Set AJAX content</p>
+		<pre>widget.content("http://chico.com/some/content.html");</pre>
+
+
+
+	</div>
+	</article> <article id="off" class="ch-expando">
+	<h5 class="ch-expando-trigger ch-user-no-select" aria-expanded="false"
+		aria-controls="ch-expando-7" role="presentation">
+		<!--if test="member.isStatic && member.memberOf != '_global_'">ch.Object.</if-->
+		off(event, handler)
+	</h5>
+	<div class="ch-expando-content ch-hide" id="ch-expando-7"
+		aria-hidden="true">
+		<p>Removes a callback function from specific event.</p>
+
+		<p>
+			It method borrows <a href="../symbols/ch.Object.html#off">ch.Object#off</a>.
+		</p>
+
+
+		<h4>Parameters</h4>
+		<ul class="ch-list parameters">
+
+			<li><code>event</code> Since version 0.7.1: <em class="string">string</em>
+				Event nawidget.</li>
+
+			<li><code>handler</code> Since version 0.7.1: <em
+				class="function">function</em> Handler function.</li>
+
+		</ul>
+
+
+
+
+		<h4>Returns</h4>
+		<ul class="ch-list">
+
+			<li>itself</li>
+
+		</ul>
+
+
+
+		<h4>Examples</h4>
+
+
+		<p>Will remove event handler to the "ready" event</p>
+		<pre>var startDoingStuff = function () {
+    // Some code here!
+};
+
+widget.off("ready", startDoingStuff);</pre>
+
+
+
+	</div>
+	</article> <article id="on" class="ch-expando">
+	<h5 class="ch-expando-trigger ch-user-no-select" aria-expanded="false"
+		aria-controls="ch-expando-8" role="presentation">
+		<!--if test="member.isStatic && member.memberOf != '_global_'">ch.Object.</if-->
+		on(event, handler)
+	</h5>
+	<div class="ch-expando-content ch-hide" id="ch-expando-8"
+		aria-hidden="true">
+		<p>Add a callback function from specific event.</p>
+
+		<p>
+			It method borrows <a href="../symbols/ch.Object.html#on">ch.Object#on</a>.
+		</p>
+
+
+		<h4>Parameters</h4>
+		<ul class="ch-list parameters">
+
+			<li><code>event</code> Since version 0.7.1: <em class="string">string</em>
+				Event nawidget.</li>
+
+			<li><code>handler</code> Since version 0.7.1: <em
+				class="function">function</em> Handler function.</li>
+
+		</ul>
+
+
+
+
+		<h4>Returns</h4>
+		<ul class="ch-list">
+
+			<li>itself</li>
+
+		</ul>
+
+
+
+		<h4>Examples</h4>
+
+
+		<p>Will add a event handler to the "ready" event</p>
+		<pre>widget.on("ready", startDoingStuff);</pre>
+
+
+
+	</div>
+	</article> <article id="once" class="ch-expando">
+	<h5 class="ch-expando-trigger ch-user-no-select" aria-expanded="false"
+		aria-controls="ch-expando-9" role="presentation">
+		<!--if test="member.isStatic && member.memberOf != '_global_'">ch.Object.</if-->
+		once(event, handler)
+	</h5>
+	<div class="ch-expando-content ch-hide" id="ch-expando-9"
+		aria-hidden="true">
+		<p>Add a callback function from specific event that it will
+			execute once.</p>
+
+		<p>
+			It method borrows <a href="../symbols/ch.Object.html#once">ch.Object#once</a>.
+		</p>
+
+
+		<h4>Parameters</h4>
+		<ul class="ch-list parameters">
+
+			<li><code>event</code> Since version 0.8.0: <em class="string">string</em>
+				Event nawidget.</li>
+
+			<li><code>handler</code> Since version 0.8.0: <em
+				class="function">function</em> Handler function.</li>
+
+		</ul>
+
+
+
+
+		<h4>Returns</h4>
+		<ul class="ch-list">
+
+			<li>itself</li>
+
+		</ul>
+
+
+
+		<h4>Examples</h4>
+
+
+		<p>Will add a event handler to the "contentLoad" event once</p>
+		<pre>widget.once("contentLoad", startDoingStuff);</pre>
+
+
+
+	</div>
+	</article> </section>
+</body>
+</html>
