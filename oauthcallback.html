@@ -5,6 +5,27 @@
 <title>oauthcallback</title>
 </head>
 <body>
+	<script type="text/javascript">
+	<!--
+		function getUrlVars() {
+			var vars = {};
+			var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
+					function(m, key, value) {
+						vars[key] = value;
+					});
+			return vars;
+		}
+
+		var access_token = getUrlVars()["access_token"];
+		var expires_in = getUrlVars()["expires_in"];
+
+		var user_id = getUrlVars()["user_id"];
+		
+		
+		alert(access_token + "--" + expires_in + "--" + user_id);
+		
+	//-->
+	</script>
 
 </body>
 </html>
