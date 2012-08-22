@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Listing an item</title>
+
+<script type="text/javascript">
+	function postItem() {
+		
+		var xmlhttp;
+		if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+			xmlhttp = new XMLHttpRequest();
+		} else {// code for IE6, IE5
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		xmlhttp.onreadystatechange = function() {
+			if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+				console.log(xmlhttp.responseText);
+			}
+		}
+		
+		xmlhttp.open("POST", "https://api.mercadolibre.com/items?access_token=APP_USR-9760-082215-4a8a4ae43e6c92cdc8a751c438e43943-57249824", true);
+		xmlhttp.setRequestHeader("Content-type","application/json");
+		xmlhttp.send("{ 'title':' Collected Fictions - Jorge Luis Borges', 'category_id':'MLA1227', 'price':11, 'currency_id':'ARS', 'available_quantity':1, 'buying_mode':'buy_it_now', 'listing_type_id':'bronze', 'condition':'new', 'description':'The New York Times bestseller, a marvelous new collection of stories by . . . one of the most remarkable writers of our century --Richard Bernstein, The New York Times', 'pictures':[{'source':'http://photo.goodreads.com/books/1190865869l/17961.jpg'}]}");
+	}
+	
+	postItem();
+	
+</script>
+</head>
+<body>
+
+</body>
+</html>
